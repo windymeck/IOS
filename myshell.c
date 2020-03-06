@@ -67,18 +67,18 @@ int read_args(int* argcp, char* args[], int max, int* eofp)
 int execute(int argc, char *argv[])
 {
 	int id;
-  char command[20] = "./";
+  char command[50] = "./";
 
   strcat(command, argv[0]);
 	
 	switch(id = fork()){
-		case -1:
-        perror("fork");
-    	break;
+		  case -1:
+          perror("fork");
+    	    break;
       case 0:
-       	if( execvp(command, argv) == -1 )
+       	  if( execvp(command, argv) == -1 )
        		fprintf(stderr, "The program %s couldn't be executed.\n", command);
-        break; 	    
+          break; 	    
       default:
       	wait(NULL);
 	}
@@ -86,7 +86,7 @@ int execute(int argc, char *argv[])
 
 int main ()
 {
-   char * Prompt = "myShell1> ";
+   char * Prompt = "[Terminus]>> ";
    int eof= 0;
    int argc;
    char *args[MAXARGS];
