@@ -24,7 +24,7 @@ int read_args(int* argcp, char* args[], int max, int* eofp)
    *argcp = 0;
    *eofp = 0;
    i=0;
-   while ((ret=read(0,cmd+i,1)) == 1) {
+   while ((ret=read(0,cmd+i,1)) == 1) { 
       if (cmd[i]=='\n') break;  // correct line
       i++;
       if (i>=MAXLINE) {
@@ -32,6 +32,7 @@ int read_args(int* argcp, char* args[], int max, int* eofp)
          break;
       }
    }
+
    switch (ret)
    {
      case 1 : cmd[i+1]='\0';    // correct reading 
