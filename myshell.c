@@ -67,14 +67,17 @@ int read_args(int* argcp, char* args[], int max, int* eofp)
 int execute(int argc, char *argv[])
 {
 	int id;
+  char command[20] = "./";
+
+  strcat(command, argv[0]);
 	
 	switch(id = fork()){
 		case -1:
         perror("fork");
     	break;
       case 0:
-       	if( execvp(argv[0], argv) == -1 )
-       		fprintf(stderr, "The program %s couldn't be executed.\n", argv[0]);
+       	if( execvp(command, argv) == -1 )
+       		fprintf(stderr, "The program %s couldn't be executed.\n", command);
         break; 	    
       default:
       	wait(NULL);
