@@ -67,7 +67,7 @@ int read_args(int* argcp, char* args[], int max, int* eofp)
 int execute(int argc, char *argv[])
 {
 	int id;
-  char command[50] = "./";
+  char command[50] = "./Commands/";
 
   strcat(command, argv[0]);
 	
