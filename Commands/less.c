@@ -1,8 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 #include <errno.h>
+#include <fcntl.h>
+#include <sys/stat.h>
 
-void less(FILE *fp)
+#define BUFSIZE 2000
+
+/*void less(FILE *fp)
 {
   char buf[BUFSIZ]; //The size of the stdio.h buffer
 
@@ -39,4 +43,15 @@ int main(int argc, char **argv)
   }
 
   return 0;
+}*/
+
+
+int main(int argc, char *argv[]){
+  int fd;
+  int n;
+  char buffer[BUFSIZE];
+
+  fd = open(argv[1], O_RDONLY);
+  while((n = read(fd, buffer, BUFSIZE))>0)
+    printf("%s\n", buffer);
 }
