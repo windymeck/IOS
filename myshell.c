@@ -8,10 +8,14 @@
 #include <errno.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <dirent.h>
+#include <fcntl.h>
+#include <sys/stat.h>
 
 #define error(a) {perror(a); exit(1);};
 #define MAXLINE 200
 #define MAXARGS 20
+#define path 200
 
 /////////// reading commands:
 
@@ -69,6 +73,10 @@ int execute(int argc, char *argv[])
 	int id;
   char command[50] = "./Commands/";
 
+  if (strcmp(argv[0], "cd") == 0){
+    cd(argc, argv);
+  }else{
+
   strcat(command, argv[0]);
 	
 	switch(id = fork()){
@@ -82,6 +90,19 @@ int execute(int argc, char *argv[])
       default:
       	wait(NULL);
 	}
+}
+}
+
+int cd(int argc, char**argv){
+  char od[path+1];
+  char new[path+1];
+
+  getcwd(od, path);
+  printf("pwd: %s\n", od);
+  printf("cd: %s\n", argv[1]);
+  chdir(argv[1]);
+  getcwd(new, path);
+  printf("pwd %s\n", new);
 }
 
 int main ()
