@@ -26,19 +26,25 @@ main (void)
 #include <string.h>
 #include <unistd.h>
 
+#define path 200
+
 void red () {
 	  printf("\033[1;31m");
 }
 
 int main(int argc, char *argv[])
 {
-	char *loc = NULL;
-	char *pointer = NULL;
+//	char *loc = NULL;
+//	char *pointer = NULL;
+  char od[path+1];
 
-	pointer = getenv("PWD");
+  getcwd(od, path);
+
+
+	//pointer = getenv("PWD");
 	if(argc == 1){
-		loc = pointer;
-		printf("You are located in %s\n", loc);
+		//loc = pointer;
+		printf("You are located in %s\n", od);
 	}
 		printf("\n");
 }
