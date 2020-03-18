@@ -1,0 +1,5 @@
+#!/bin/bash
+
+mkdir ~/Uni/2.MAILA/ISO/PROJECT/IOS/prueba
+chmod 111 ~/Uni/2.MAILA/ISO/PROJECT/IOS/prueba
+

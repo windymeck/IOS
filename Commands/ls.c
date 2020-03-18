@@ -6,6 +6,10 @@
 #include <string.h>
 #include <unistd.h>
 
+void red () {
+	  printf("\033[1;31m");
+}
+
 int main(int argc, char *argv[])
 {
 	DIR *dirp;
@@ -24,10 +28,13 @@ int main(int argc, char *argv[])
 			if(dp->d_name[0] != '.'){
 				stat(dp->d_name, &fstats);
 				//printf("Mode: %s%lo\n", dp->d_name, (unsigned long) fstats.st_mode);
-				if(fstats.st_mode & S_IFDIR)
-					printf("---->%s/ \n",dp->d_name);
-				else
-					printf("#%s\n", dp->d_name);
+				if(fstats.st_mode & S_IFDIR){
+					red();
+					printf("%s",dp->d_name);
+					printf("\033[0m");
+					printf("/\n");
+				}else
+					printf("%s\n", dp->d_name);
 			}
 		}
 		printf("\n");
@@ -43,10 +50,13 @@ int main(int argc, char *argv[])
 				chdir(pointer);
 				stat(dp->d_name, &fstats);
 				//printf("Mode: %s%lo\n", dp->d_name, (unsigned long) fstats.st_mode);
-				if(fstats.st_mode & S_IFDIR)
-					printf("---->%s/ \n",dp->d_name);
-				else
-					printf("#%s\n", dp->d_name);
+				if(fstats.st_mode & S_IFDIR){
+					red();
+					printf("%s",dp->d_name);
+					printf("\033[0m");
+					printf("/\n");
+				}else
+					printf("%s\n", dp->d_name);
 			}
 		}
 		printf("\n");

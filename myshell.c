@@ -8,10 +8,14 @@
 #include <errno.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <dirent.h>
+#include <fcntl.h>
+#include <sys/stat.h>
 
 #define error(a) {perror(a); exit(1);};
 #define MAXLINE 200
 #define MAXARGS 20
+#define path 200
 
 /////////// reading commands:
 
@@ -68,23 +72,43 @@ int read_args(int* argcp, char* args[], int max, int* eofp)
 int execute(int argc, char *argv[])
 {
 	int id;
+  char command[50] = "./Commands/";
+
+  if (strcmp(argv[0], "cd") == 0){
+    cd(argc, argv);
+  }else{
+
+  strcat(command, argv[0]);
 	
 	switch(id = fork()){
-		case -1:
-        perror("fork");
-    	break;
+		  case -1:
+          perror("fork");
+    	    break;
       case 0:
-       	if( execvp(argv[0], argv) == -1 )
-       		fprintf(stderr, "The program %s couldn't be executed.\n", argv[0]);
-        break; 	    
+       	  if( execvp(command, argv) == -1 )
+       		fprintf(stderr, "The program %s couldn't be executed.\n", command);
+          break; 	    
       default:
       	wait(NULL);
 	}
 }
+}
+
+int cd(int argc, char**argv){
+  char od[path+1];
+  char new[path+1];
+
+  getcwd(od, path);
+  printf("pwd: %s\n", od);
+  printf("cd: %s\n", argv[1]);
+  chdir(argv[1]);
+  getcwd(new, path);
+  printf("pwd %s\n", new);
+}
 
 int main ()
 {
-   char * Prompt = "myShell1> ";
+   char * Prompt = "[Terminus]>> ";
    int eof= 0;
    int argc;
    char *args[MAXARGS];
