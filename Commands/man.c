@@ -5,7 +5,7 @@
 #include <sys/stat.h>
 
 #define BUFSIZE 2000
-#define path "Commands/manfolder/"
+#define path "/home/unai/Uni/2.MAILA/ISO/PROJECT/IOS/Commands/manfolder/"
 
 int main(int argc, char *argv[]){
   int fd;
