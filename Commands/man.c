@@ -5,12 +5,13 @@
 #include <sys/stat.h>
 
 #define BUFSIZE 2000
+#define path "Commands/manfolder/"
 
 int main(int argc, char *argv[]){
   int fd;
   int n;
   char buffer[BUFSIZE];
-  char a[30] = "manfolder/";
+  char a[100] = path;
 
   strcat(a, argv[1]);
 

@@ -16,6 +16,7 @@
 #define MAXLINE 200
 #define MAXARGS 20
 #define path 200
+#define command "/home/unai/Uni/2.MAILA/ISO/PROJECT/IOS/Commands/"
 
 /////////// reading commands:
 
@@ -71,20 +72,22 @@ int read_args(int* argcp, char* args[], int max, int* eofp)
 int execute(int argc, char *argv[])
 {
 	int id;
-  char command[50] = "./Commands/";
+  char a[100] = command;
 
   if (strcmp(argv[0], "cd") == 0){
     cd(argc, argv);
+  }else if(strcmp(argv[0], "ls") == 0){
+    ls(argc, argv);
   }else{
 
-  strcat(command, argv[0]);
+  strcat(a, argv[0]);
 	
 	switch(id = fork()){
 		  case -1:
           perror("fork");
     	    break;
       case 0:
-       	  if( execvp(command, argv) == -1 )
+       	  if( execv(a, argv) == -1 )
        		fprintf(stderr, "The program %s couldn't be executed.\n", command);
           break; 	    
       default:
@@ -103,7 +106,69 @@ int cd(int argc, char**argv){
   chdir(argv[1]);
   getcwd(new, path);
   printf("pwd %s\n", new);
+  return 1;
 }
+
+
+void red () {
+    printf("\033[1;31m");
+}
+
+int ls(int argc, char *argv[])
+{
+  DIR *dirp;
+  struct dirent *dp;
+  struct stat fstats;
+  char *loc = NULL;
+  char pointer[path+1];
+  char bar[1] = "/";
+
+  getcwd(pointer, path);
+  if(argc == 1){
+    dirp = opendir((const char*)pointer);
+    loc = pointer;
+    printf("You are located in %s\n", loc);
+    while((dp=readdir(dirp))!=NULL){
+      if(dp->d_name[0] != '.'){
+        stat(dp->d_name, &fstats);
+        //printf("Mode: %s%lo\n", dp->d_name, (unsigned long) fstats.st_mode);
+        if(fstats.st_mode & S_IFDIR){
+          red();
+          printf("%s",dp->d_name);
+          printf("\033[0m");
+          printf("/\n");
+        }else
+          printf("%s\n", dp->d_name);
+      }
+    }
+    printf("\n");
+  }
+  else{
+    strcat(pointer, bar);
+    strcat(pointer, argv[1]);
+    dirp = opendir((const char*)pointer);
+    loc = pointer;
+    printf("You are located in %s\n", loc);
+    while((dp=readdir(dirp))!=NULL){
+      if(dp->d_name[0] != '.'){
+        chdir(pointer);
+        stat(dp->d_name, &fstats);
+        //printf("Mode: %s%lo\n", dp->d_name, (unsigned long) fstats.st_mode);
+        if(fstats.st_mode & S_IFDIR){
+          red();
+          printf("%s",dp->d_name);
+          printf("\033[0m");
+          printf("/\n");
+        }else
+          printf("%s\n", dp->d_name);
+      }
+    }
+    printf("\n");
+  }
+  return 0;
+}
+
+
 
 int main ()
 {
