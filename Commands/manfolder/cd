@@ -1,0 +1,22 @@
+NAME
+
+	cd- This command changes the shell working directory and prints the name of the new path by the console.
+
+SYNOPSIS
+	cd [dir].
+
+DESCRIPTION
+
+	Change the current directory to “dir”. The value of the home shell variable is the default directory. We get the current working directory and we print it.
+	Then we change the directory to our input directory and we obtain the directory after the change, printing the name of this new path.
+
+SEE ALSO
+
+	-bash(1)
+	-chdir()
+	-getcwd()
+
+REPORTING BUGS
+
+	The chdir() system call is not being well executed because the programm does not change the directory.
+
