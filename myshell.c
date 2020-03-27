@@ -102,11 +102,11 @@ int cd(int argc, char**argv){
   char new[path+1];
 
   getcwd(od, path);
-  printf("pwd: %s\n", od);
-  printf("cd: %s\n", argv[1]);
+  //printf("pwd: %s\n", od);
+  //printf("cd: %s\n", argv[1]);
   chdir(argv[1]);
   getcwd(new, path);
-  printf("pwd %s\n", new);
+  //printf("pwd %s\n", new);
   return 1;
 }
 
