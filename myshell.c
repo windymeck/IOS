@@ -14,7 +14,7 @@
 
 #define error(a) {perror(a); exit(1);};
 #define MAXLINE 200
-#define MAXARGS 20
+#define MAXARGS 250
 #define path 200
 #define command "/home/unai/Uni/2.MAILA/ISO/PROJECT/IOS/Commands/"
 
@@ -115,6 +115,10 @@ void red () {
     printf("\033[1;31m");
 }
 
+void green(){
+    printf("\033[32m");
+}
+
 int ls(int argc, char *argv[])
 {
   DIR *dirp;
@@ -173,16 +177,24 @@ int ls(int argc, char *argv[])
 
 int main ()
 {
-   char * Prompt = "[Terminus]>> ";
+   char * Prompt = "[Terminus] >> ";
    int eof= 0;
    int argc;
    char *args[MAXARGS];
 
    while (1) {
+      char p[path+1];
+      getcwd(p, path);
+      green();
+      printf("%s\n", p);
       write(0,Prompt, strlen(Prompt));
+      printf("\033[0m");
       if (read_args(&argc, args, MAXARGS, &eof) && argc > 0) {
          execute(argc, args);
       }
       if (eof) exit(0);
    }
 }
+
+
+//

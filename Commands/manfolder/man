@@ -1,0 +1,19 @@
+NAME
+
+	man - format and display the manual pages
+
+SYNOPSIS
+
+	man [-acdfFhkKtwW]
+
+DESCRITION
+
+	man formats and displays the manual pages. If you specify section, man only looks in that section of the manual. 
+	Name is normally the name of the manual page, which is typically the name of a command or function.
+
+SEE ALSO
+
+	-open()
+	-read()
+
+REPORTING BUGS

@@ -1,5 +1,24 @@
 #!/bin/bash
 
 mkdir ~/Uni/2.MAILA/ISO/PROJECT/IOS/prueba
-chmod 111 ~/Uni/2.MAILA/ISO/PROJECT/IOS/prueba
+chmod 777 ~/Uni/2.MAILA/ISO/PROJECT/IOS/prueba
+
+
+mkdir ~/Uni/2.MAILA/ISO/PROJECT/IOS/Home
+
+mkdir ~/Uni/2.MAILA/ISO/PROJECT/IOS/Home/WesternForest
+
+mkdir ~/Uni/2.MAILA/ISO/PROJECT/IOS/Home/NorthernMeadow
+
+mkdir ~/Uni/2.MAILA/ISO/PROJECT/IOS/Home/WesternForest/SpellCastingAcademy
+
+mkdir ~/Uni/2.MAILA/ISO/PROJECT/IOS/Home/WesternForest/SpellCastingAcademy/Lessons
+
+mkdir ~/Uni/2.MAILA/ISO/PROJECT/IOS/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+
+mkdir ~/Uni/2.MAILA/ISO/PROJECT/IOS/Home/NorthernMeadow/EasternMountains
+
+mkdir ~/Uni/2.MAILA/ISO/PROJECT/IOS/Home/NorthernMeadow/Cave
+
+chmod 444 ~/Uni/2.MAILA/ISO/PROJECT/IOS/Home/NorthernMeadow
 
