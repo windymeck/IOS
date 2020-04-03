@@ -100,12 +100,27 @@ int execute(int argc, char *argv[])
 int cd(int argc, char**argv){
   char od[path+1];
   char new[path+1];
+  int res = 0;
 
   getcwd(od, path);
   //printf("pwd: %s\n", od);
   //printf("cd: %s\n", argv[1]);
-  chdir(argv[1]);
+  res = chdir(argv[1]);
   getcwd(new, path);
+
+  if(res != 0){
+    switch(res){
+      case EACCES: perror("Permission denied");
+      break;
+      case EIO:  perror("An input output error occured");
+      break;
+      case ENOTDIR: perror("A component of path not a directory"); 
+      break;
+      case ENOENT: perror("No such file or directory"); printf("enoent\n");
+      
+      default: perror("Couldn't change directory");
+    }
+  }
   //printf("pwd %s\n", new);
   return 1;
 }
@@ -125,10 +140,10 @@ int ls(int argc, char *argv[])
   struct dirent *dp;
   struct stat fstats;
   char *loc = NULL;
-  char pointer[path+1];
+  char *pointer = NULL;
   char bar[1] = "/";
 
-  getcwd(pointer, path);
+  pointer = getenv("PWD");
   if(argc == 1){
     dirp = opendir((const char*)pointer);
     loc = pointer;
