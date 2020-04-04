@@ -141,10 +141,10 @@ int ls(int argc, char *argv[])
   struct dirent *dp;
   struct stat fstats;
   char *loc = NULL;
-  char pointer[pathls+1];
+  char pointer[path+1];
   char bar[1] = "/";
 
-  getcwd(pointer, pathls);
+  getcwd(pointer, path);
   if(argc == 1){
     dirp = opendir((const char*)pointer);
     loc = pointer;
