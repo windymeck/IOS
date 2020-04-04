@@ -16,6 +16,7 @@
 #define MAXLINE 200
 #define MAXARGS 250
 #define path 200
+#define pathls 200
 #define command "/home/unai/Uni/2.MAILA/ISO/PROJECT/IOS/Commands/"
 
 /////////// reading commands:
@@ -140,10 +141,10 @@ int ls(int argc, char *argv[])
   struct dirent *dp;
   struct stat fstats;
   char *loc = NULL;
-  char *pointer = NULL;
+  char pointer[pathls+1];
   char bar[1] = "/";
 
-  pointer = getenv("PWD");
+  getcwd(pointer, pathls);
   if(argc == 1){
     dirp = opendir((const char*)pointer);
     loc = pointer;
@@ -164,7 +165,7 @@ int ls(int argc, char *argv[])
     printf("\n");
   }
   else{
-    strcat(pointer, bar);
+    strcat(pointer, "/");
     strcat(pointer, argv[1]);
     dirp = opendir((const char*)pointer);
     loc = pointer;
