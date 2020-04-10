@@ -164,29 +164,33 @@ int ls(int argc, char *argv[])
     }
     printf("\n");
   }
-  else{
-    strcat(pointer, "/");
-    strcat(pointer, argv[1]);
-    dirp = opendir((const char*)pointer);
-    loc = pointer;
-    printf("You are located in %s\n", loc);
-    while((dp=readdir(dirp))!=NULL){
-      if(dp->d_name[0] != '.'){
-        chdir(pointer);
-        stat(dp->d_name, &fstats);
-        //printf("Mode: %s%lo\n", dp->d_name, (unsigned long) fstats.st_mode);
-        if(fstats.st_mode & S_IFDIR){
-          red();
-          printf("%s",dp->d_name);
-          printf("\033[0m");
-          printf("/\n");
-        }else
-          printf("%s\n", dp->d_name);
+  else if(argc > 1){
+    if (stat(argv[1], &fstats) == -1) {
+      perror("stat");
+    }else{
+      strcat(pointer, "/");
+      strcat(pointer, argv[1]);
+      dirp = opendir((const char*)pointer);
+      loc = pointer;
+      printf("You are located in %s\n", loc);
+      while((dp=readdir(dirp))!=NULL){
+        if(dp->d_name[0] != '.'){
+          chdir(pointer);
+          stat(dp->d_name, &fstats);
+          //printf("Mode: %s%lo\n", dp->d_name, (unsigned long) fstats.st_mode);
+          if(fstats.st_mode & S_IFDIR){
+            red();
+            printf("%s",dp->d_name);
+            printf("\033[0m");
+            printf("/\n");
+          }else
+           printf("%s\n", dp->d_name);
+        }
       }
+      printf("\n");
     }
-    printf("\n");
-  }
-  return 0;
+  } 
+  return 1;
 }
 
 

@@ -1,9 +1,5 @@
 #!/bin/bash
 
-mkdir ~/Uni/2.MAILA/ISO/PROJECT/IOS/prueba
-chmod 777 ~/Uni/2.MAILA/ISO/PROJECT/IOS/prueba
-
-
 mkdir ~/Uni/2.MAILA/ISO/PROJECT/IOS/Home
 
 mkdir ~/Uni/2.MAILA/ISO/PROJECT/IOS/Home/WesternForest

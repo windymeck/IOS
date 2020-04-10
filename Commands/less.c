@@ -52,6 +52,19 @@ int main(int argc, char *argv[]){
   char buffer[BUFSIZE];
 
   fd = open(argv[1], O_RDONLY);
+  if(fd != 0){
+      switch(fd){
+          case EACCES: perror("Permission denied");
+          break;
+          case EIO:  perror("An input output error occured");
+          break;
+          case ENOTDIR: perror("A component of path not a directory"); 
+          break;
+          case ENOENT: perror("No such file or directory"); printf("enoent\n");
+      
+          default: perror("Couldn't read the file");
+      }
+  }
   while((n = read(fd, buffer, BUFSIZE))>0)
     printf("%s\n", buffer);
 }
