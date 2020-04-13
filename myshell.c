@@ -16,8 +16,8 @@
 #define MAXLINE 200
 #define MAXARGS 250
 #define path 200
-#define pathls 200
-#define command "/home/unai/Uni/2.MAILA/ISO/PROJECT/IOS/Commands/"
+//#define pathls 200
+//#define command "/home/unai/Uni/2.MAILA/ISO/PROJECT/IOS/Commands/"
 
 /////////// reading commands:
 
@@ -74,7 +74,11 @@ int read_args(int* argcp, char* args[], int max, int* eofp)
 int execute(int argc, char *argv[])
 {
 	int id;
-  char a[100] = command;
+  char a[100];
+  /**/
+  
+
+
 
   if (strcmp(argv[0], "cd") == 0){
     cd(argc, argv);
@@ -82,15 +86,21 @@ int execute(int argc, char *argv[])
     ls(argc, argv);
   }else{
 
+  chdir("Commands");
+  getcwd(a, 100);
+  //printf("%s\n", a);
+  chdir("..");
+  //printf("%s\n", a);
+  strcat(a, "/");
   strcat(a, argv[0]);
-	
+	printf("\n");
 	switch(id = fork()){
 		  case -1:
           perror("fork");
     	    break;
       case 0:
        	  if( execv(a, argv) == -1 )
-       		fprintf(stderr, "The program %s couldn't be executed.\n", command);
+       		fprintf(stderr, "The program %s couldn't be executed.\n", a);
           break; 	    
       default:
       	wait(NULL);

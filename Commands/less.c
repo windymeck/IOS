@@ -52,7 +52,7 @@ int main(int argc, char *argv[]){
   char buffer[BUFSIZE];
 
   fd = open(argv[1], O_RDONLY);
-  if(fd != 0){
+  if(fd < 0){
       switch(fd){
           case EACCES: perror("Permission denied");
           break;
