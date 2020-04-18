@@ -212,6 +212,24 @@ int main ()
    int argc;
    char *args[MAXARGS];
 
+   red();
+   printf("\n");
+   printf("\n");
+   printf("Welcome! If you are new to the game, here are some tips:\n");
+   printf("Look at your surroundings with the command 'ls'.\n");
+   printf("Move to a new location with the command 'cd LOCATION'\n");
+   printf("You can backtrack with the command 'cd ..'.\n");
+   printf("Interact with things in the world with the command 'less ITEM' \n");
+   printf("\n");
+   printf("If you forget where you are, type 'pwd'\n");
+   printf("\n");
+   printf("Go ahead, explore. We hope you enjoy what you find. Do ls as your first command.\n");
+   printf("\n");
+   printf("To Start the game please ENTER Game folder\n");
+   printf("\n");
+   printf("\n");
+   printf("\033[0m");
+
    while (1) {
       char p[path+1];
       getcwd(p, path);
