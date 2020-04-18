@@ -1,0 +1,22 @@
+NAME
+       ls - list directory contents
+
+SYNOPSIS
+       ls [FILE]...
+
+DESCRIPTION
+       List  information  about  the FILEs (the current directory by default).
+       Sort entries alphabetically if none of -cftuvSUX nor --sort  is  speci‐
+       fied.
+    
+       We differentiate the files and the directories by using the stat system call. If the        fstats.st_mode & S_IFDIR is true that mean that it is a directory otherwise it is a file.
+
+
+       Mandatory  arguments  to  long  options are mandatory for short options
+       too.
+SEE ALSO
+       open
+
+REPORTING BUGS
+       
+
