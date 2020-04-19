@@ -158,7 +158,7 @@ int ls(int argc, char *argv[])
   if(argc == 1){
     dirp = opendir((const char*)pointer);
     loc = pointer;
-    printf("You are located in %s\n", loc);
+    //printf("You are located in %s\n", loc);
     while((dp=readdir(dirp))!=NULL){
       if(dp->d_name[0] != '.'){
         stat(dp->d_name, &fstats);
@@ -182,7 +182,7 @@ int ls(int argc, char *argv[])
       strcat(pointer, argv[1]);
       dirp = opendir((const char*)pointer);
       loc = pointer;
-      printf("You are located in %s\n", loc);
+      //printf("You are located in %s\n", loc);
       while((dp=readdir(dirp))!=NULL){
         if(dp->d_name[0] != '.'){
           chdir(pointer);
@@ -234,7 +234,7 @@ int main ()
       char p[path+1];
       getcwd(p, path);
       green();
-      printf("%s\n", p);
+      printf("You are located in: %s\n", p);
       write(0,Prompt, strlen(Prompt));
       printf("\033[0m");
       if (read_args(&argc, args, MAXARGS, &eof) && argc > 0) {
