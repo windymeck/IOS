@@ -14,6 +14,13 @@ mkdir Game/Home/NorthernMeadow/EasternMountains
 mkdir Game/Home/NorthernMeadow/Cave
 chmod 444 Game/Home/NorthernMeadow
 
+echo -ne '#####                     (33%)\r'
+sleep 1
+echo -ne '#############             (66%)\r'
+sleep 1
+echo -ne '#######################   (100%)\r'
+echo -ne '\n'
+
 echo "Game folders created succesfully."
 #compile and create executables
 echo ""
@@ -28,8 +35,15 @@ gcc Code/man.c -o Commands/man -w
 gcc Code/pwd.c -o Commands/pwd -w
 gcc Code/touch.c -o Commands/touch -w
 
+echo -ne '#####                     (33%)\r'
+sleep 1
+echo -ne '#############             (66%)\r'
+sleep 1
+echo -ne '#######################   (100%)\r'
+echo -ne '\n'
 echo "Code compiled successfully."
 echo ""
+
 echo "Copying man files..."
 mkdir Commands/manfolder
 
@@ -41,6 +55,13 @@ cp Code/touch Commands/manfolder/
 cp Code/grep Commands/manfolder/
 cp Code/man Commands/manfolder/
 cp Code/pwd Commands/manfolder/
+
+echo -ne '#####                     (33%)\r'
+sleep 1
+echo -ne '#############             (66%)\r'
+sleep 1
+echo -ne '#######################   (100%)\r'
+echo -ne '\n'
 
 echo "done! :)"
 echo "To enter the game execute write './shell' and hit enter."
