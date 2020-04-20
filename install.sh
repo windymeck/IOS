@@ -64,5 +64,14 @@ echo -ne '#######################   (100%)\r'
 echo -ne '\n'
 
 echo "done! :)"
+read -p 'do you want to start playing?[y/n]' input
+if [ $input != "y" ];
+then 
+	echo "bye!!"
+	exit
+else 
+	echo "loading game..."
+	./shell
+fi
 echo "To enter the game execute write './shell' and hit enter."
 

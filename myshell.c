@@ -16,8 +16,8 @@
 #define MAXLINE 200
 #define MAXARGS 250
 #define path 200
-//#define pathls 200
-//#define command "/home/unai/Uni/2.MAILA/ISO/PROJECT/IOS/Commands/"
+#define pathls 200
+#define command "/home/unai/Uni/2.MAILA/ISO/PROJECT/IOS/Commands/"
 
 /////////// reading commands:
 
@@ -74,36 +74,23 @@ int read_args(int* argcp, char* args[], int max, int* eofp)
 int execute(int argc, char *argv[])
 {
 	int id;
-  char a[100];
-  /**/
-  
-
-
+  char a[100] = command;
 
   if (strcmp(argv[0], "cd") == 0){
     cd(argc, argv);
   }else if(strcmp(argv[0], "ls") == 0){
     ls(argc, argv);
-  }else if(strcmp(argv[0], "exit") == 0){
-    printf("bye!!\n");
-    exit(0);
   }else{
 
-  chdir("Commands");
-  getcwd(a, 100);
-  //printf("%s\n", a);
-  chdir("..");
-  //printf("%s\n", a);
-  strcat(a, "/");
   strcat(a, argv[0]);
-	printf("\n");
+	
 	switch(id = fork()){
 		  case -1:
           perror("fork");
     	    break;
       case 0:
        	  if( execv(a, argv) == -1 )
-       		fprintf(stderr, "The program %s couldn't be executed.\n", a);
+       		fprintf(stderr, "The program %s couldn't be executed.\n", command);
           break; 	    
       default:
       	wait(NULL);
@@ -161,7 +148,7 @@ int ls(int argc, char *argv[])
   if(argc == 1){
     dirp = opendir((const char*)pointer);
     loc = pointer;
-    //printf("You are located in %s\n", loc);
+    printf("You are located in %s\n", loc);
     while((dp=readdir(dirp))!=NULL){
       if(dp->d_name[0] != '.'){
         stat(dp->d_name, &fstats);
@@ -177,33 +164,29 @@ int ls(int argc, char *argv[])
     }
     printf("\n");
   }
-  else if(argc > 1){
-    if (stat(argv[1], &fstats) == -1) {
-      perror("stat");
-    }else{
-      strcat(pointer, "/");
-      strcat(pointer, argv[1]);
-      dirp = opendir((const char*)pointer);
-      loc = pointer;
-      //printf("You are located in %s\n", loc);
-      while((dp=readdir(dirp))!=NULL){
-        if(dp->d_name[0] != '.'){
-          chdir(pointer);
-          stat(dp->d_name, &fstats);
-          //printf("Mode: %s%lo\n", dp->d_name, (unsigned long) fstats.st_mode);
-          if(fstats.st_mode & S_IFDIR){
-            red();
-            printf("%s",dp->d_name);
-            printf("\033[0m");
-            printf("/\n");
-          }else
-           printf("%s\n", dp->d_name);
-        }
+  else{
+    strcat(pointer, "/");
+    strcat(pointer, argv[1]);
+    dirp = opendir((const char*)pointer);
+    loc = pointer;
+    printf("You are located in %s\n", loc);
+    while((dp=readdir(dirp))!=NULL){
+      if(dp->d_name[0] != '.'){
+        chdir(pointer);
+        stat(dp->d_name, &fstats);
+        //printf("Mode: %s%lo\n", dp->d_name, (unsigned long) fstats.st_mode);
+        if(fstats.st_mode & S_IFDIR){
+          red();
+          printf("%s",dp->d_name);
+          printf("\033[0m");
+          printf("/\n");
+        }else
+          printf("%s\n", dp->d_name);
       }
-      printf("\n");
     }
-  } 
-  return 1;
+    printf("\n");
+  }
+  return 0;
 }
 
 
@@ -215,29 +198,11 @@ int main ()
    int argc;
    char *args[MAXARGS];
 
-   red();
-   printf("\n");
-   printf("\n");
-   printf("Welcome! If you are new to the game, here are some tips:\n");
-   printf("Look at your surroundings with the command 'ls'.\n");
-   printf("Move to a new location with the command 'cd LOCATION'\n");
-   printf("You can backtrack with the command 'cd ..'.\n");
-   printf("Interact with things in the world with the command 'less ITEM' \n");
-   printf("\n");
-   printf("If you forget where you are, type 'pwd'\n");
-   printf("\n");
-   printf("Go ahead, explore. We hope you enjoy what you find. Do ls as your first command.\n");
-   printf("\n");
-   printf("To Start the game please ENTER Game folder\n");
-   printf("\n");
-   printf("\n");
-   printf("\033[0m");
-
    while (1) {
       char p[path+1];
       getcwd(p, path);
       green();
-      printf("You are located in: %s\n", p);
+      printf("%s\n", p);
       write(0,Prompt, strlen(Prompt));
       printf("\033[0m");
       if (read_args(&argc, args, MAXARGS, &eof) && argc > 0) {
