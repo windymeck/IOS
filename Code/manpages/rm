@@ -1,0 +1,17 @@
+NAME
+       rm - remove files or directories
+
+SYNOPSIS
+       rm [OPTION]... [FILE]...
+
+DESCRIPTION
+       This manual page documents the GNU version of rm.  rm removes
+       each specified file.  By default, it does not remove directo‐
+       ries.
+SEE ALSO     
+
+	unlink(1), unlink(2)
+
+REPORTING BUGS
+
+it has no options

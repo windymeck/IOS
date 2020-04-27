@@ -34,6 +34,7 @@ gcc Code/grep.c -o Commands/grep -w
 gcc Code/man.c -o Commands/man -w
 gcc Code/pwd.c -o Commands/pwd -w
 gcc Code/touch.c -o Commands/touch -w
+gcc Code/rm.c -o Commands/rm -w
 
 echo -ne '#####                     (33%)\r'
 sleep 1
@@ -47,14 +48,14 @@ echo ""
 echo "Copying man files..."
 mkdir Commands/manfolder
 
-cp Code/cd Commands/manfolder/
-cp Code/cp Commands/manfolder/
-cp Code/ls Commands/manfolder/
-cp Code/less Commands/manfolder/
-cp Code/touch Commands/manfolder/
-cp Code/grep Commands/manfolder/
-cp Code/man Commands/manfolder/
-cp Code/pwd Commands/manfolder/
+cp Code/manpages/cd Commands/manfolder/
+cp Code/manpages/cp Commands/manfolder/
+cp Code/manpages/ls Commands/manfolder/
+cp Code/manpages/less Commands/manfolder/
+cp Code/manpages/touch Commands/manfolder/
+cp Code/manpages/grep Commands/manfolder/
+cp Code/manpages/man Commands/manfolder/
+cp Code/manpages/pwd Commands/manfolder/
 
 echo -ne '#####                     (33%)\r'
 sleep 1
