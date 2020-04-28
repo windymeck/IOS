@@ -15,7 +15,9 @@
 #define error(a) {perror(a); exit(1);};
 #define MAXLINE 200
 #define MAXARGS 250
-#define path 200
+#define path 20000
+
+static char gamepath[5000]; 
 //#define pathls 200
 //#define command "/home/unai/Uni/2.MAILA/ISO/PROJECT/IOS/Commands/"
 
@@ -74,29 +76,33 @@ int read_args(int* argcp, char* args[], int max, int* eofp)
 int execute(int argc, char *argv[])
 {
 	int id;
-  char a[100];
+  char a[10000];
   /**/
   
 
 
 
-  if (strcmp(argv[0], "cd") == 0){
+ if (strcmp(argv[0], "cd") == 0){
     cd(argc, argv);
-  }else if(strcmp(argv[0], "ls") == 0){
+ /* }else if(strcmp(argv[0], "ls") == 0){
     ls(argc, argv);
-  }else if(strcmp(argv[0], "exit") == 0){
+  */}else if(strcmp(argv[0], "exit") == 0){
     printf("bye!!\n");
     exit(0);
   }else{
 
-  chdir("Commands");
+ /* chdir("Commands");
   getcwd(a, 100);
   //printf("%s\n", a);
   chdir("..");
   //printf("%s\n", a);
   strcat(a, "/");
   strcat(a, argv[0]);
-	printf("\n");
+	printf("\n");*/
+  strcpy(a, gamepath);
+  printf("%s\n", a);
+  strcat(a, argv[0]);
+
 	switch(id = fork()){
 		  case -1:
           perror("fork");
@@ -110,6 +116,7 @@ int execute(int argc, char *argv[])
 	}
 }
 }
+
 
 int cd(int argc, char**argv){
   char od[path+1];
@@ -140,15 +147,7 @@ int cd(int argc, char**argv){
 }
 
 
-void red () {
-    printf("\033[1;31m");
-}
-
-void green(){
-    printf("\033[32m");
-}
-
-int ls(int argc, char *argv[])
+/*int ls(int argc, char *argv[])
 {
   DIR *dirp;
   struct dirent *dp;
@@ -204,7 +203,16 @@ int ls(int argc, char *argv[])
     }
   } 
   return 1;
+}*/
+void red () {
+    printf("\033[1;31m");
 }
+
+void green(){
+    printf("\033[32m");
+}
+
+
 
 
 
@@ -214,6 +222,12 @@ int main ()
    int eof= 0;
    int argc;
    char *args[MAXARGS];
+
+   char a[100];
+   getcwd(a, path);
+   strcpy(gamepath, a);
+   strcat(gamepath, "/Commands/");
+   printf("%s\n", gamepath);
 
    red();
    printf("\n");
