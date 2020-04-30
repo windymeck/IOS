@@ -66,5 +66,6 @@ int main(int argc, char *argv[]){
       }
   }
   while((n = read(fd, buffer, BUFSIZE))>0)
-    printf("%s\n", buffer);
+    //printf("%s\n", buffer);
+    write(1, buffer, n);
 }
