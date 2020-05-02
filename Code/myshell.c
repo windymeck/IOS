@@ -82,7 +82,7 @@ int execute(int argc, char *argv[])
 
 
 
- if (strcmp(argv[0], "cd") == 0){
+  if (strcmp(argv[0], "cd") == 0){
     cd(argc, argv);
  /* }else if(strcmp(argv[0], "ls") == 0){
     ls(argc, argv);
@@ -222,6 +222,7 @@ int main ()
    int eof= 0;
    int argc;
    char *args[MAXARGS];
+   int val;
 
    char a[100];
    getcwd(a, path);
@@ -248,7 +249,7 @@ int main ()
    printf("\033[0m");
 
    while (1) {
-      char p[path+1];
+	  char p[path+1];
       getcwd(p, path);
       green();
       printf("You are located in: %s\n", p);
@@ -257,6 +258,11 @@ int main ()
       if (read_args(&argc, args, MAXARGS, &eof) && argc > 0) {
          execute(argc, args);
       }
+      if(strcmp(args[0], "cd") != 0){
+        mkfifo("pipe", 0666);
+        val = open("pipe", O_WRONLY);
+        write(val, args[0], sizeof(args[0]));
+      } 
       if (eof) exit(0);
    }
 }

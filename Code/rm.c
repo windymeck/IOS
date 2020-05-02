@@ -18,7 +18,7 @@ int main (int argc, char *argv[]){
 	len = strlen(argv[1]);
 	//printf("%s deleted\n", argv[1]);
 	write(1, argv[1], len);
-	write(1, " deleted\n", 8);
+	write(1, " deleted", 8);
 	write(1, newline, strlen(newline));
 	e = unlink(ptf);
 	if(e < 0){
