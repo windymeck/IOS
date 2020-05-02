@@ -77,6 +77,7 @@ int execute(int argc, char *argv[])
 {
 	int id;
   char a[10000];
+  int val;
   /**/
   
 
@@ -129,7 +130,7 @@ int cd(int argc, char**argv){
   res = chdir(argv[1]);
   getcwd(new, path);
 
-  if(res != 0){
+  if(res < 0){
     switch(res){
       case EACCES: perror("Permission denied");
       break;
@@ -143,7 +144,7 @@ int cd(int argc, char**argv){
     }
   }
   //printf("pwd %s\n", new);
-  return 1;
+  return res;
 }
 
 
@@ -223,6 +224,8 @@ int main ()
    int argc;
    char *args[MAXARGS];
    int val;
+   int valp;
+   int valarg;
 
    char a[100];
    getcwd(a, path);
@@ -250,7 +253,9 @@ int main ()
 
    while (1) {
 	  char p[path+1];
+    char pp[path+1];
       getcwd(p, path);
+      strcpy(pp, p);
       green();
       printf("You are located in: %s\n", p);
       write(0,Prompt, strlen(Prompt));
@@ -258,11 +263,19 @@ int main ()
       if (read_args(&argc, args, MAXARGS, &eof) && argc > 0) {
          execute(argc, args);
       }
-      if(strcmp(args[0], "cd") != 0){
+      //if(strcmp(args[0], "cd") != 0){
         mkfifo("pipe", 0666);
         val = open("pipe", O_WRONLY);
         write(val, args[0], sizeof(args[0]));
-      } 
+        /*if(args[1] != NULL){
+        mkfifo("pipe1", 0666);
+        valarg = open("pipe1", O_WRONLY);
+        write(valarg, args[1], sizeof(args[1]));
+        }*/
+        mkfifo("pipe2", 0666);
+        valp = open("pipe2", O_WRONLY);
+        write(valp, pp, sizeof(pp));
+      //} 
       if (eof) exit(0);
    }
 }
