@@ -73,9 +73,38 @@ int read_args(int* argcp, char* args[], int max, int* eofp)
 
 ///////////////////////////////////////
 
+int cd(int argc, char**argv){
+  char od[path+1];
+  char new[path+1];
+  int res = 0;
+
+  //getcwd(od, path);
+  //printf("pwd: %s\n", od);
+  //printf("cd: %s\n", argv[1]);
+  res = chdir(argv[1]);
+  //getcwd(new, path);
+
+  if(res != 0){
+    switch(res){
+      case EACCES: perror("Permission denied");
+      break;
+      case EIO:  perror("An input output error occured");
+      break;
+      case ENOTDIR: perror("A component of path not a directory"); 
+      break;
+      case ENOENT: perror("No such file or directory"); printf("enoent\n");
+      
+      default: perror("Couldn't change directory");
+    }
+  }
+  //printf("pwd %s\n", new);
+  return res;
+}
+
+
 int execute(int argc, char *argv[])
 {
-	int id;
+  int id;
   char a[10000];
   int val;
   /**/
@@ -89,17 +118,11 @@ int execute(int argc, char *argv[])
     ls(argc, argv);
   */}else if(strcmp(argv[0], "exit") == 0){
     printf("bye!!\n");
+	val = open("pipe", O_WRONLY);
+	write(val, argv[0], sizeof(argv[0]));
     exit(0);
   }else{
 
- /* chdir("Commands");
-  getcwd(a, 100);
-  //printf("%s\n", a);
-  chdir("..");
-  //printf("%s\n", a);
-  strcat(a, "/");
-  strcat(a, argv[0]);
-	printf("\n");*/
   strcpy(a, gamepath);
   printf("%s\n", a);
   strcat(a, argv[0]);
@@ -118,93 +141,6 @@ int execute(int argc, char *argv[])
 }
 }
 
-
-int cd(int argc, char**argv){
-  char od[path+1];
-  char new[path+1];
-  int res = 0;
-
-  getcwd(od, path);
-  //printf("pwd: %s\n", od);
-  //printf("cd: %s\n", argv[1]);
-  res = chdir(argv[1]);
-  getcwd(new, path);
-
-  if(res < 0){
-    switch(res){
-      case EACCES: perror("Permission denied");
-      break;
-      case EIO:  perror("An input output error occured");
-      break;
-      case ENOTDIR: perror("A component of path not a directory"); 
-      break;
-      case ENOENT: perror("No such file or directory"); printf("enoent\n");
-      
-      default: perror("Couldn't change directory");
-    }
-  }
-  //printf("pwd %s\n", new);
-  return res;
-}
-
-
-/*int ls(int argc, char *argv[])
-{
-  DIR *dirp;
-  struct dirent *dp;
-  struct stat fstats;
-  char *loc = NULL;
-  char pointer[path+1];
-  char bar[1] = "/";
-
-  getcwd(pointer, path);
-  if(argc == 1){
-    dirp = opendir((const char*)pointer);
-    loc = pointer;
-    //printf("You are located in %s\n", loc);
-    while((dp=readdir(dirp))!=NULL){
-      if(dp->d_name[0] != '.'){
-        stat(dp->d_name, &fstats);
-        //printf("Mode: %s%lo\n", dp->d_name, (unsigned long) fstats.st_mode);
-        if(fstats.st_mode & S_IFDIR){
-          red();
-          printf("%s",dp->d_name);
-          printf("\033[0m");
-          printf("/\n");
-        }else
-          printf("%s\n", dp->d_name);
-      }
-    }
-    printf("\n");
-  }
-  else if(argc > 1){
-    if (stat(argv[1], &fstats) == -1) {
-      perror("stat");
-    }else{
-      strcat(pointer, "/");
-      strcat(pointer, argv[1]);
-      dirp = opendir((const char*)pointer);
-      loc = pointer;
-      //printf("You are located in %s\n", loc);
-      while((dp=readdir(dirp))!=NULL){
-        if(dp->d_name[0] != '.'){
-          chdir(pointer);
-          stat(dp->d_name, &fstats);
-          //printf("Mode: %s%lo\n", dp->d_name, (unsigned long) fstats.st_mode);
-          if(fstats.st_mode & S_IFDIR){
-            red();
-            printf("%s",dp->d_name);
-            printf("\033[0m");
-            printf("/\n");
-          }else
-           printf("%s\n", dp->d_name);
-        }
-      }
-      printf("\n");
-    }
-  } 
-  return 1;
-}*/
 void red () {
     printf("\033[1;31m");
 }
@@ -212,9 +148,6 @@ void red () {
 void green(){
     printf("\033[32m");
 }
-
-
-
 
 
 int main ()
@@ -251,6 +184,10 @@ int main ()
    printf("\n");
    printf("\033[0m");
 
+   mkfifo("pipe", 0666);
+   val = open("pipe", O_WRONLY);
+   mkfifo("pipe2", 0666);
+   valp = open("pipe2", O_WRONLY);
    while (1) {
 	  char p[path+1];
     char pp[path+1];
@@ -264,16 +201,8 @@ int main ()
          execute(argc, args);
       }
       //if(strcmp(args[0], "cd") != 0){
-        mkfifo("pipe", 0666);
-        val = open("pipe", O_WRONLY);
         write(val, args[0], sizeof(args[0]));
-        /*if(args[1] != NULL){
-        mkfifo("pipe1", 0666);
-        valarg = open("pipe1", O_WRONLY);
-        write(valarg, args[1], sizeof(args[1]));
-        }*/
-        mkfifo("pipe2", 0666);
-        valp = open("pipe2", O_WRONLY);
+    
         write(valp, pp, sizeof(pp));
       //} 
       if (eof) exit(0);
