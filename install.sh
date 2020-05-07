@@ -28,6 +28,7 @@ echo "Compiling code..."
 
 mkdir Commands
 gcc Code/myshell.c -o shell -w
+gcc Code/server.c -o server -w
 gcc Code/less.c -o Commands/less -w
 gcc Code/cp.c -o Commands/cp -w
 gcc Code/grep.c -o Commands/grep -w

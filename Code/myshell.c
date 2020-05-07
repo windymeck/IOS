@@ -117,27 +117,27 @@ int execute(int argc, char *argv[])
  /* }else if(strcmp(argv[0], "ls") == 0){
     ls(argc, argv);
   */}else if(strcmp(argv[0], "exit") == 0){
-    printf("bye!!\n");
-	val = open("pipe", O_WRONLY);
-	write(val, argv[0], sizeof(argv[0]));
-    exit(0);
+      val = open("pipe", O_WRONLY);
+      write(val, argv[0], sizeof(argv[0]));
+      printf("bye!!\n");
+      exit(0);
   }else{
 
   strcpy(a, gamepath);
   printf("%s\n", a);
   strcat(a, argv[0]);
 
-	switch(id = fork()){
-		  case -1:
+  switch(id = fork()){
+      case -1:
           perror("fork");
-    	    break;
+          break;
       case 0:
-       	  if( execv(a, argv) == -1 )
-       		fprintf(stderr, "The program %s couldn't be executed.\n", a);
-          break; 	    
+          if( execv(a, argv) == -1 )
+          fprintf(stderr, "The program %s couldn't be executed.\n", a);
+          break;      
       default:
-      	wait(NULL);
-	}
+        wait(NULL);
+  }
 }
 }
 
@@ -186,11 +186,14 @@ int main ()
 
    mkfifo("pipe", 0666);
    val = open("pipe", O_WRONLY);
+   mkfifo("pipe1", 0666);
+   valp = open("pipe1", O_WRONLY);
    mkfifo("pipe2", 0666);
-   valp = open("pipe2", O_WRONLY);
+   valarg = open("pipe2", O_WRONLY);
    while (1) {
-	  char p[path+1];
+    char p[path+1];
     char pp[path+1];
+    char arggg[100];
       getcwd(p, path);
       strcpy(pp, p);
       green();
@@ -199,12 +202,12 @@ int main ()
       printf("\033[0m");
       if (read_args(&argc, args, MAXARGS, &eof) && argc > 0) {
          execute(argc, args);
+         if(strcmp(args[0], "ls") != 0){
+           write(val, args[0], sizeof(args[0]));
+           write(valp, pp, sizeof(pp));
+           write(valarg, args[1], sizeof(args[1]));
+         }
       }
-      //if(strcmp(args[0], "cd") != 0){
-        write(val, args[0], sizeof(args[0]));
-    
-        write(valp, pp, sizeof(pp));
-      //} 
       if (eof) exit(0);
    }
 }

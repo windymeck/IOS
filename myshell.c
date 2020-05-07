@@ -15,9 +15,11 @@
 #define error(a) {perror(a); exit(1);};
 #define MAXLINE 200
 #define MAXARGS 250
-#define path 200
-#define pathls 200
-#define command "/home/unai/Uni/2.MAILA/ISO/PROJECT/IOS/Commands/"
+#define path 20000
+
+static char gamepath[5000]; 
+//#define pathls 200
+//#define command "/home/unai/Uni/2.MAILA/ISO/PROJECT/IOS/Commands/"
 
 /////////// reading commands:
 
@@ -71,43 +73,16 @@ int read_args(int* argcp, char* args[], int max, int* eofp)
 
 ///////////////////////////////////////
 
-int execute(int argc, char *argv[])
-{
-	int id;
-  char a[100] = command;
-
-  if (strcmp(argv[0], "cd") == 0){
-    cd(argc, argv);
-  }else if(strcmp(argv[0], "ls") == 0){
-    ls(argc, argv);
-  }else{
-
-  strcat(a, argv[0]);
-	
-	switch(id = fork()){
-		  case -1:
-          perror("fork");
-    	    break;
-      case 0:
-       	  if( execv(a, argv) == -1 )
-       		fprintf(stderr, "The program %s couldn't be executed.\n", command);
-          break; 	    
-      default:
-      	wait(NULL);
-	}
-}
-}
-
 int cd(int argc, char**argv){
   char od[path+1];
   char new[path+1];
   int res = 0;
 
-  getcwd(od, path);
+  //getcwd(od, path);
   //printf("pwd: %s\n", od);
   //printf("cd: %s\n", argv[1]);
   res = chdir(argv[1]);
-  getcwd(new, path);
+  //getcwd(new, path);
 
   if(res != 0){
     switch(res){
@@ -123,9 +98,48 @@ int cd(int argc, char**argv){
     }
   }
   //printf("pwd %s\n", new);
-  return 1;
+  return res;
 }
 
+
+int execute(int argc, char *argv[])
+{
+  int id;
+  char a[10000];
+  int val;
+  /**/
+  
+
+
+
+  if (strcmp(argv[0], "cd") == 0){
+    cd(argc, argv);
+ /* }else if(strcmp(argv[0], "ls") == 0){
+    ls(argc, argv);
+  */}else if(strcmp(argv[0], "exit") == 0){
+      val = open("pipe", O_WRONLY);
+      write(val, argv[0], sizeof(argv[0]));
+      printf("bye!!\n");
+      exit(0);
+  }else{
+
+  strcpy(a, gamepath);
+  printf("%s\n", a);
+  strcat(a, argv[0]);
+
+  switch(id = fork()){
+      case -1:
+          perror("fork");
+          break;
+      case 0:
+          if( execv(a, argv) == -1 )
+          fprintf(stderr, "The program %s couldn't be executed.\n", a);
+          break;      
+      default:
+        wait(NULL);
+  }
+}
+}
 
 void red () {
     printf("\033[1;31m");
@@ -135,61 +149,6 @@ void green(){
     printf("\033[32m");
 }
 
-int ls(int argc, char *argv[])
-{
-  DIR *dirp;
-  struct dirent *dp;
-  struct stat fstats;
-  char *loc = NULL;
-  char pointer[path+1];
-  char bar[1] = "/";
-
-  getcwd(pointer, path);
-  if(argc == 1){
-    dirp = opendir((const char*)pointer);
-    loc = pointer;
-    printf("You are located in %s\n", loc);
-    while((dp=readdir(dirp))!=NULL){
-      if(dp->d_name[0] != '.'){
-        stat(dp->d_name, &fstats);
-        //printf("Mode: %s%lo\n", dp->d_name, (unsigned long) fstats.st_mode);
-        if(fstats.st_mode & S_IFDIR){
-          red();
-          printf("%s",dp->d_name);
-          printf("\033[0m");
-          printf("/\n");
-        }else
-          printf("%s\n", dp->d_name);
-      }
-    }
-    printf("\n");
-  }
-  else{
-    strcat(pointer, "/");
-    strcat(pointer, argv[1]);
-    dirp = opendir((const char*)pointer);
-    loc = pointer;
-    printf("You are located in %s\n", loc);
-    while((dp=readdir(dirp))!=NULL){
-      if(dp->d_name[0] != '.'){
-        chdir(pointer);
-        stat(dp->d_name, &fstats);
-        //printf("Mode: %s%lo\n", dp->d_name, (unsigned long) fstats.st_mode);
-        if(fstats.st_mode & S_IFDIR){
-          red();
-          printf("%s",dp->d_name);
-          printf("\033[0m");
-          printf("/\n");
-        }else
-          printf("%s\n", dp->d_name);
-      }
-    }
-    printf("\n");
-  }
-  return 0;
-}
-
-
 
 int main ()
 {
@@ -197,16 +156,57 @@ int main ()
    int eof= 0;
    int argc;
    char *args[MAXARGS];
+   int val;
+   int valp;
+   int valarg;
 
+   char a[100];
+   getcwd(a, path);
+   strcpy(gamepath, a);
+   strcat(gamepath, "/Commands/");
+   printf("%s\n", gamepath);
+
+   red();
+   printf("\n");
+   printf("\n");
+   printf("Welcome! If you are new to the game, here are some tips:\n");
+   printf("Look at your surroundings with the command 'ls'.\n");
+   printf("Move to a new location with the command 'cd LOCATION'\n");
+   printf("You can backtrack with the command 'cd ..'.\n");
+   printf("Interact with things in the world with the command 'less ITEM' \n");
+   printf("\n");
+   printf("If you forget where you are, type 'pwd'\n");
+   printf("\n");
+   printf("Go ahead, explore. We hope you enjoy what you find. Do ls as your first command.\n");
+   printf("\n");
+   printf("To Start the game please ENTER Game folder\n");
+   printf("\n");
+   printf("\n");
+   printf("\033[0m");
+
+   mkfifo("pipe", 0666);
+   val = open("pipe", O_WRONLY);
+   mkfifo("pipe1", 0666);
+   valp = open("pipe1", O_WRONLY);
+   mkfifo("pipe2", 0666);
+   valarg = open("pipe2", O_WRONLY);
    while (1) {
-      char p[path+1];
+    char p[path+1];
+    char pp[path+1];
+    char arggg[100];
       getcwd(p, path);
+      strcpy(pp, p);
       green();
-      printf("%s\n", p);
+      printf("You are located in: %s\n", p);
       write(0,Prompt, strlen(Prompt));
       printf("\033[0m");
       if (read_args(&argc, args, MAXARGS, &eof) && argc > 0) {
          execute(argc, args);
+         if(strcmp(args[0], "ls") != 0){
+           write(val, args[0], sizeof(args[0]));
+           write(valp, pp, sizeof(pp));
+           write(valarg, args[1], sizeof(args[1]));
+         }
       }
       if (eof) exit(0);
    }
