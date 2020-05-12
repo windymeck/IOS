@@ -1,6 +1,3 @@
-//////MYSHELL1////////////////////////////////////
-//////////////////////////////////////////////////
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -12,16 +9,18 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 
+#include "defines.h"
+
 #define error(a) {perror(a); exit(1);};
 #define MAXLINE 200
 #define MAXARGS 250
 #define path 20000
 
 static char gamepath[5000]; 
-//#define pathls 200
-//#define command "/home/unai/Uni/2.MAILA/ISO/PROJECT/IOS/Commands/"
 
-/////////// reading commands:
+
+////// reading commands: //////
+
 
 int read_args(int* argcp, char* args[], int max, int* eofp)
 {
@@ -163,8 +162,11 @@ int main ()
    char a[100];
    getcwd(a, path);
    strcpy(gamepath, a);
-   strcat(gamepath, "/Commands/");
-   printf("%s\n", gamepath);
+   strcat(gamepath, "/Commands/"); 
+
+    int fd1, fd2, ni, n;
+    struct t_request Request; 
+    struct t_answer Answer;
 
    red();
    printf("\n");
@@ -183,17 +185,12 @@ int main ()
    printf("\n");
    printf("\n");
    printf("\033[0m");
-
-   mkfifo("pipe", 0666);
-   val = open("pipe", O_WRONLY);
-   mkfifo("pipe1", 0666);
-   valp = open("pipe1", O_WRONLY);
-   mkfifo("pipe2", 0666);
-   valarg = open("pipe2", O_WRONLY);
+  
    while (1) {
     char p[path+1];
     char pp[path+1];
     char arggg[100];
+    char ans[500];
       getcwd(p, path);
       strcpy(pp, p);
       green();
@@ -203,11 +200,48 @@ int main ()
       if (read_args(&argc, args, MAXARGS, &eof) && argc > 0) {
          execute(argc, args);
          if(strcmp(args[0], "ls") != 0){
-           write(val, args[0], sizeof(args[0]));
-           write(valp, pp, sizeof(pp));
-           write(valarg, args[1], sizeof(args[1]));
+
+            printf("+-----------------------------------------------------------------------------------------------------+\n");
+            if ((fd1= open(FIFO_SHELL_SERVER, O_RDWR)) < 0) 
+              error("Client: open FIFO Server");
+
+            ni= getpid();
+   
+            sprintf(Request.answerBox, "/tmp/MAILBOX_clnt%06d", ni);
+  
+            unlink(Request.answerBox);
+            if (mkfifo(Request.answerBox, 0660) < 0) 
+              error("Client: mkfifo");
+            chmod(Request.answerBox, 0660);
+
+            if ((fd2= open(Request.answerBox, O_RDWR)) < 0) 
+              error("Client: opening client box");
+           //write(val, args[0], sizeof(args[0]));
+           //write(valp, pp, sizeof(pp));
+           //write(valarg, args[1], sizeof(args[1]));
+              strcpy(Request.command, args[0]);
+              strcpy(Request.location, pp);
+              strcpy(Request.argument, args[1]);
+
+            // Send petition message to the SERVER
+            if ((n= write(fd1, &Request, sizeof(struct t_request))) < 0) 
+              error("Client: write server box");
+  
+            // Wait answer from SERVER
+            if ((n= read(fd2, &Answer, sizeof(struct t_answer))) <= 0) 
+              error("Client: read answer box");
+      
+            printf("[1]Server's ack: %s\n", Answer.message);
+  
+            close(fd1);
+            close(fd2);
+   
+            unlink(Request.answerBox);
+            printf("[2]Answer box %s deleted\n", Request.answerBox);
+            printf("+-----------------------------------------------------------------------------------------------------+\n");
          }
       }
+         
       if (eof) exit(0);
    }
 }

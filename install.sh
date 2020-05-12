@@ -14,6 +14,8 @@ mkdir Game/Home/NorthernMeadow/EasternMountains
 mkdir Game/Home/NorthernMeadow/Cave
 chmod 444 Game/Home/NorthernMeadow
 
+cp Code/explanations/WelcomeLetter(Home).txt Game/Home
+
 echo -ne '#####                     (33%)\r'
 sleep 1
 echo -ne '#############             (66%)\r'
@@ -28,7 +30,7 @@ echo "Compiling code..."
 
 mkdir Commands
 gcc Code/myshell.c -o shell -w
-gcc Code/server.c -o server -w
+gcc Code/shellServer.c -o server -w
 gcc Code/less.c -o Commands/less -w
 gcc Code/cp.c -o Commands/cp -w
 gcc Code/grep.c -o Commands/grep -w
@@ -36,6 +38,7 @@ gcc Code/man.c -o Commands/man -w
 gcc Code/pwd.c -o Commands/pwd -w
 gcc Code/touch.c -o Commands/touch -w
 gcc Code/rm.c -o Commands/rm -w
+gcc Code/mv.c -o Commands/mv -w
 
 echo -ne '#####                     (33%)\r'
 sleep 1
