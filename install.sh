@@ -14,17 +14,17 @@ mkdir Game/Home/NorthernMeadow/EasternMountains
 mkdir Game/Home/NorthernMeadow/Cave
 chmod 444 Game/Home/NorthernMeadow
 
-cp Code/explanations/WelcomeLetter(Home).txt Game/Home
-cp Code/explanations/BackSign(WesternForest).txt Game/Home/WesternForest
-cp Code/explanations/Sign(WesternForest).txt Game/Home/WesternForest
-cp Code/explanations/HurryingStudent(SpellCastingAcademy).txt Game/Home/WesternForest/SpellCastingAcademy
-cp Code/explanations/Instructions(PracticeRoom).txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
-cp Code/explanations/PracticeDummy1(PracticeRoom).txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
-cp Code/explanations/PracticeDummy2(PracticeRoom).txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
-cp Code/explanations/PracticeDummy3(PracticeRoom).txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
-cp Code/explanations/PracticeDummy4(PracticeRoom).txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
-cp Code/explanations/PracticeDummy5(PracticeRoom).txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
-cp Code/explanations/Professor(Lessons).txt Game/Home/WesternForest/SpellCastingAcademy/Lessons
+cp Code/explanations/WelcomeLetter.txt Game/Home
+cp Code/explanations/BackSign.txt Game/Home/WesternForest
+cp Code/explanations/Sign.txt Game/Home/WesternForest
+cp Code/explanations/HurryingStudent.txt Game/Home/WesternForest/SpellCastingAcademy
+cp Code/explanations/Instructions.txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/PracticeDummy1.txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/PracticeDummy2.txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/PracticeDummy3.txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/PracticeDummy4.txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/PracticeDummy5.txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/Professor.txt Game/Home/WesternForest/SpellCastingAcademy/Lessons
 
 echo -ne '#####                     (33%)\r'
 sleep 1
@@ -42,13 +42,14 @@ mkdir Commands
 gcc Code/myshell.c -o shell -w
 gcc Code/shellServer.c -o server -w
 gcc Code/less.c -o Commands/less -w
-gcc Code/cp.c -o Commands/cp -w
+gcc Code/cp2.c -o Commands/cp -w
 gcc Code/grep.c -o Commands/grep -w
 gcc Code/man.c -o Commands/man -w
 gcc Code/pwd.c -o Commands/pwd -w
 gcc Code/touch.c -o Commands/touch -w
 gcc Code/rm.c -o Commands/rm -w
 gcc Code/mv.c -o Commands/mv -w
+gcc Code/ls.c -o Commands/ls -w
 
 echo -ne '#####                     (33%)\r'
 sleep 1
