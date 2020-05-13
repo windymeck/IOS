@@ -116,14 +116,11 @@ int execute(int argc, char *argv[])
  /* }else if(strcmp(argv[0], "ls") == 0){
     ls(argc, argv);
   */}else if(strcmp(argv[0], "exit") == 0){
-      val = open("pipe", O_WRONLY);
-      write(val, argv[0], sizeof(argv[0]));
       printf("bye!!\n");
       exit(0);
   }else{
 
   strcpy(a, gamepath);
-  printf("%s\n", a);
   strcat(a, argv[0]);
 
   switch(id = fork()){
@@ -199,7 +196,7 @@ int main ()
       printf("\033[0m");
       if (read_args(&argc, args, MAXARGS, &eof) && argc > 0) {
          execute(argc, args);
-         if(strcmp(args[0], "ls") != 0){
+         if(strcmp(args[0], "exit") != 0){
 
             printf("+-----------------------------------------------------------------------------------------------------+\n");
             if ((fd1= open(FIFO_SHELL_SERVER, O_RDWR)) < 0) 
@@ -216,12 +213,15 @@ int main ()
 
             if ((fd2= open(Request.answerBox, O_RDWR)) < 0) 
               error("Client: opening client box");
-           //write(val, args[0], sizeof(args[0]));
-           //write(valp, pp, sizeof(pp));
-           //write(valarg, args[1], sizeof(args[1]));
-              strcpy(Request.command, args[0]);
+              
+			  strcpy(Request.command, args[0]);
               strcpy(Request.location, pp);
-              strcpy(Request.argument, args[1]);
+			  if(strcmp(args[0], "ls") == 0 && argc == 1 || strcmp(args[0], "pwd") == 0 && argc == 1){
+              	strcpy(Request.argument, "null");
+			  }else{
+              	strcpy(Request.argument, args[1]);
+			  }
+
 
             // Send petition message to the SERVER
             if ((n= write(fd1, &Request, sizeof(struct t_request))) < 0) 

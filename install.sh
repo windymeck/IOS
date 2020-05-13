@@ -15,6 +15,16 @@ mkdir Game/Home/NorthernMeadow/Cave
 chmod 444 Game/Home/NorthernMeadow
 
 cp Code/explanations/WelcomeLetter(Home).txt Game/Home
+cp Code/explanations/BackSign(WesternForest).txt Game/Home/WesternForest
+cp Code/explanations/Sign(WesternForest).txt Game/Home/WesternForest
+cp Code/explanations/HurryingStudent(SpellCastingAcademy).txt Game/Home/WesternForest/SpellCastingAcademy
+cp Code/explanations/Instructions(PracticeRoom).txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/PracticeDummy1(PracticeRoom).txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/PracticeDummy2(PracticeRoom).txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/PracticeDummy3(PracticeRoom).txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/PracticeDummy4(PracticeRoom).txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/PracticeDummy5(PracticeRoom).txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/Professor(Lessons).txt Game/Home/WesternForest/SpellCastingAcademy/Lessons
 
 echo -ne '#####                     (33%)\r'
 sleep 1
