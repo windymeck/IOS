@@ -23,6 +23,7 @@ int main(int argc, char *argv[]){
 	int fd1;
 	if((fd1 = open(FIFO_SHELL_SERVER, O_RDWR)) < 0)
 		error("Client: open FIFO server!!");
+	getPath();
 	while(1){
 		if((n = read(fd1, &req, sizeof(struct t_request))) <= 0)
 			error("Client: read server box");

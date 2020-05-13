@@ -11,6 +11,8 @@
 #define error(a) {perror(a); _exit(1);}
 #include "defines.h"
 
+static char gamepath[5000];
+
 void Acknowledgement(struct t_request *req){
 	int fd;
 	struct t_answer Answer;
@@ -27,7 +29,7 @@ void Acknowledgement(struct t_request *req){
 }
 
 void LevelUnlock(struct t_request *req){
-	if(strcmp(req->command, "rm") == 0 && (strcmp(req->location, "/home/unai/Uni/2.MAILA/ISO/PROJECT/IOS") == 0 && strcmp(req->argument, "ola") == 0)){
+	if(strcmp(req->command, "rm") == 0 && (strcmp(req->location, gamepath) == 0 && strcmp(req->argument, "ola") == 0)){
 		chmod("/home/unai/Uni/2.MAILA/ISO/PROJECT/IOS/Game/Home/NorthernMeadow", S_IRWXU);
 		printf("Level unlocked\n");
 	}
@@ -36,4 +38,12 @@ void LevelUnlock(struct t_request *req){
 
 void RequestTrace(struct t_request *req){
 	printf("Server: Request read, Command=%s Location=%s Argument=%s\n", req->command, req->location, req->argument);
+}
+
+void getPath(){
+	char loc[500];
+	getcwd(loc, 500);
+	printf("%s\n", loc);
+	strcpy(gamepath, loc);
+	printf("%s\n", gamepath);
 }
