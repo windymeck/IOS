@@ -11,20 +11,42 @@ mkdir Game/Home/WesternForest/SpellCastingAcademy
 mkdir Game/Home/WesternForest/SpellCastingAcademy/Lessons
 mkdir Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
 mkdir Game/Home/NorthernMeadow/EasternMountains
-mkdir Game/Home/NorthernMeadow/Cave
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/Staircase
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/SmallHole
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber
+
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/Marketplace
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/Library
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/Library/BackRoom
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/RockyPath
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/RockyPath/Farm
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/ArtisanShop
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/House
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/Slide
+#folder permissions
 chmod 444 Game/Home/NorthernMeadow
 
-cp Code/explanations/WelcomeLetter.txt Game/Home
-cp Code/explanations/BackSign.txt Game/Home/WesternForest
-cp Code/explanations/Sign.txt Game/Home/WesternForest
-cp Code/explanations/HurryingStudent.txt Game/Home/WesternForest/SpellCastingAcademy
-cp Code/explanations/Instructions.txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
-cp Code/explanations/PracticeDummy1.txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
-cp Code/explanations/PracticeDummy2.txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
-cp Code/explanations/PracticeDummy3.txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
-cp Code/explanations/PracticeDummy4.txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
-cp Code/explanations/PracticeDummy5.txt Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
-cp Code/explanations/Professor.txt Game/Home/WesternForest/SpellCastingAcademy/Lessons
+cp Code/explanations/WelcomeLetter Game/Home
+cp Code/explanations/BackSign Game/Home/WesternForest
+cp Code/explanations/Sign Game/Home/WesternForest
+cp Code/explanations/HurryingStudent Game/Home/WesternForest/SpellCastingAcademy
+cp Code/explanations/Instructions Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/PracticeDummy1 Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/PracticeDummy2 Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/PracticeDummy3 Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/PracticeDummy4 Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/PracticeDummy5 Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+cp Code/explanations/Professor Game/Home/WesternForest/SpellCastingAcademy/Lessons
 
 echo -ne '#####                     (33%)\r'
 sleep 1

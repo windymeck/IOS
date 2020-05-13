@@ -30,6 +30,9 @@ void Acknowledgement(struct t_request *req){
 
 void LevelUnlock(struct t_request *req){
 	if(strcmp(req->command, "rm") == 0 && (strcmp(req->location, gamepath) == 0 && strcmp(req->argument, "ola") == 0)){
+		char north[500];
+		strcpy(north, gamepath);
+		strcat(north, "Game/Home/NorthernMeadow");
 		chmod("/home/unai/Uni/2.MAILA/ISO/PROJECT/IOS/Game/Home/NorthernMeadow", S_IRWXU);
 		printf("Level unlocked\n");
 	}
