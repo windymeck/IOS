@@ -10,6 +10,7 @@ mkdir Game/Home/NorthernMeadow
 mkdir Game/Home/WesternForest/SpellCastingAcademy
 mkdir Game/Home/WesternForest/SpellCastingAcademy/Lessons
 mkdir Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
+mkdir Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom/Box
 mkdir Game/Home/NorthernMeadow/EasternMountains
 mkdir Game/Home/NorthernMeadow/EasternMountains/Cave
 mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/Staircase

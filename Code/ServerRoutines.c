@@ -29,11 +29,14 @@ void Acknowledgement(struct t_request *req){
 }
 
 void LevelUnlock(struct t_request *req){
-	if(strcmp(req->command, "rm") == 0 && (strcmp(req->location, gamepath) == 0 && strcmp(req->argument, "ola") == 0)){
+	char cloc[500];
+	strcpy(cloc, gamepath);
+	strcat(cloc, "/Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom");
+	if(strcmp(req->command, "mv") == 0 && (strcmp(req->location, cloc) == 0 && strcmp(req->argument, "PracticeDummy5") == 0)){
 		char north[500];
 		strcpy(north, gamepath);
 		strcat(north, "Game/Home/NorthernMeadow");
-		chmod("/home/unai/Uni/2.MAILA/ISO/PROJECT/IOS/Game/Home/NorthernMeadow", S_IRWXU);
+		chmod(north, S_IRWXU);
 		printf("Level unlocked\n");
 	}
 
