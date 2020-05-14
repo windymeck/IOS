@@ -32,7 +32,52 @@ void LevelUnlockAck(struct t_request *req){
 	int fd;
 	struct t_answer Answer;
 
-	strcpy(Answer.message, "Level Unlocked!!");
+	strcpy(Answer.message, "NorthernMeadow Unlocked!!");
+	Answer.Type  = REQUEST_SERVED;
+	
+
+	if((fd = open(req->answerBox, O_RDWR)) < 0)
+		error("Server: open: Server Box");
+
+	write(fd, &Answer, sizeof(struct t_answer));
+	close(fd);	
+}
+
+void TunnelUnlockAck(struct t_request *req){
+	int fd;
+	struct t_answer Answer;
+
+	strcpy(Answer.message, "Tunnel Unlocked!!");
+	Answer.Type  = REQUEST_SERVED;
+	
+
+	if((fd = open(req->answerBox, O_RDWR)) < 0)
+		error("Server: open: Server Box");
+
+	write(fd, &Answer, sizeof(struct t_answer));
+	close(fd);	
+}
+
+void BackRoomUnlockAck(struct t_request *req){
+	int fd;
+	struct t_answer Answer;
+
+	strcpy(Answer.message, "You opened the back room!!");
+	Answer.Type  = REQUEST_SERVED;
+	
+
+	if((fd = open(req->answerBox, O_RDWR)) < 0)
+		error("Server: open: Server Box");
+
+	write(fd, &Answer, sizeof(struct t_answer));
+	close(fd);	
+}
+
+void FarmUnlockAck(struct t_request *req){
+	int fd;
+	struct t_answer Answer;
+
+	strcpy(Answer.message, "You revealed the farm!!");
 	Answer.Type  = REQUEST_SERVED;
 	
 
@@ -45,8 +90,6 @@ void LevelUnlockAck(struct t_request *req){
 
 void LevelUnlock(struct t_request *req){
 	char cloc[500];
-	//int fd;
-	//struct t_answer Answer;
 	strcpy(cloc, gamepath);
 	strcat(cloc, "/Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom");
 	if(strcmp(req->command, "mv") == 0 && (strcmp(req->location, cloc) == 0 && strcmp(req->argument, "PracticeDummy5") == 0)){
@@ -54,13 +97,7 @@ void LevelUnlock(struct t_request *req){
 		strcpy(north, gamepath);
 		strcat(north, "/Game/Home/NorthernMeadow");
 		chmod(north, S_IRWXU);
-	//	strcpy(Answer.message, "NorthernMeadow Unlocked!!");
-	//	Answer.Type = REQUEST_SERVED;
-	//	if(fd = open(req->answerBox, O_RDWR) < 0)
-	//		error("Server: open: Server Box");
-
-	//	write(fd, &Answer, sizeof(struct t_answer));
-	//	close(fd);
+		LevelUnlockAck(req);
 	}
 
 }
@@ -79,8 +116,6 @@ void getPath(){
 
 void UnlockTunnel(struct t_request *req){
 	char dr[500];
-	//int fd;
-	//struct t_answer Answer;
 	strcpy(dr, gamepath);
 	strcat(dr, "/Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom");
 	if(strcmp(req->command, "mv") == 0 && strcmp(req->location, dr) == 0 && strcmp(req->argument, "Boulder") == 0){
@@ -88,14 +123,32 @@ void UnlockTunnel(struct t_request *req){
 		strcpy(tunnel, gamepath);
 		strcat(tunnel, "/Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel");
 		chmod(tunnel, S_IRWXU);
-	//	strcpy(Answer.message, "Tunnel Unlocked!!");
-	//	Answer.Type = REQUEST_SERVED;
+		TunnelUnlockAck(req);
+	}
+}
 
-	//	if(fd = open(req->answerBox, O_RDWR) < 0)
-	//		error("Server: open: Server Box");
+void UnlockBackRoom(struct t_request *req){
+	char dr[500];
+	strcpy(dr, gamepath);
+	strcat(dr, "/Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TowSquare/Library");
+	if(strcmp(req->command, "less") == 0 && strcmp(req->location, dr) == 0 && strcmp(req->argument, "InconscpicuousLever") == 0){
+		char lib[500];
+		strcpy(lib, gamepath);
+		strcat(lib, "/Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/Library/BackRoom");
+		chmod(lib, S_IRWXU);
+		BackRoomUnlockAck(req);
+	}
+}
 
-	//	write(fd, &Answer, sizeof(struct t_answer));
-	//	close(fd);
-
+void UnlockFarm(struct t_request *req){
+	char dr[500];
+	strcpy(dr, gamepath);
+	strcat(dr, "/Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TowSquare/RockyPath");
+	if(strcmp(req->command, "rm") == 0 && strcmp(req->location, dr) == 0 && strcmp(req->argument, "LargeBoulder") == 0){
+		char f[500];
+		strcpy(f, gamepath);
+		strcat(f, "/Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TowSquare/RockyPath/Farm");
+		chmod(f, S_IRWXU);
+		FarmUnlockAck(req);
 	}
 }

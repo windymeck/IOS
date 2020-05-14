@@ -10,7 +10,6 @@
 #define error(a) {perror(a);_exit(1);}
 
 #include "ServerRoutines.c"
-//#include "defines.h"
 
 int main(int argc, char *argv[]){
 	struct t_request req;
@@ -29,14 +28,20 @@ int main(int argc, char *argv[]){
 			error("Client: read server box");
 		if(strcmp(req.command, "mv") == 0){
 			RequestTrace(&req);
-			//LevelUnlock(&req);
+			LevelUnlock(&req);
 			UnlockTunnel(&req);
-			LevelUnlockAck(&req);	
+			Acknowledgement(&req);
+		}else if(strcmp(req.command, "less") == 0){
+			RequestTrace(&req);
+			UnlockBackRoom(&req);
+			Acknowledgement(&req);
+		}else if(strcmp(req.command, "rm") == 0){
+			RequestTrace(&req);
+			UnlockFarm(&req);
+			Acknowledgement(&req);
 		}else{
 		RequestTrace(&req);
-//		LevelUnlock(&req);
 		Acknowledgement(&req);
-//		UnlockTunnel(&req);
 		}
 	}
 }

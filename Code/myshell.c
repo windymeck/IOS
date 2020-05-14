@@ -198,7 +198,7 @@ int main ()
          execute(argc, args);
          if(strcmp(args[0], "exit") != 0){
 
-            printf("+-----------------------------------------------------------------------------------------------------+\n");
+            printf("+-------[SERVER]------------------------------------------------------------------------------+\n");
             if ((fd1= open(FIFO_SHELL_SERVER, O_RDWR)) < 0) 
               error("Client: open FIFO Server");
 
@@ -231,14 +231,14 @@ int main ()
             if ((n= read(fd2, &Answer, sizeof(struct t_answer))) <= 0) 
               error("Client: read answer box");
       
-            printf("[1]Server's ack: %s\n", Answer.message);
+            printf("[!] %s\n", Answer.message);
   
             close(fd1);
             close(fd2);
    
             unlink(Request.answerBox);
-            printf("[2]Answer box %s deleted\n", Request.answerBox);
-            printf("+-----------------------------------------------------------------------------------------------------+\n");
+            //printf("[2]Answer box %s deleted\n", Request.answerBox);
+            printf("+---------------------------------------------------------------------------------------------+\n");
          }
       }
          
