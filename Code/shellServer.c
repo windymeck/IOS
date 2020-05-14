@@ -27,8 +27,16 @@ int main(int argc, char *argv[]){
 	while(1){
 		if((n = read(fd1, &req, sizeof(struct t_request))) <= 0)
 			error("Client: read server box");
+		if(strcmp(req.command, "mv") == 0){
+			RequestTrace(&req);
+			//LevelUnlock(&req);
+			UnlockTunnel(&req);
+			LevelUnlockAck(&req);	
+		}else{
 		RequestTrace(&req);
-		LevelUnlock(&req);
+//		LevelUnlock(&req);
 		Acknowledgement(&req);
+//		UnlockTunnel(&req);
+		}
 	}
 }

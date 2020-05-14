@@ -15,26 +15,27 @@ mkdir Game/Home/NorthernMeadow/EasternMountains
 mkdir Game/Home/NorthernMeadow/EasternMountains/Cave
 mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/Staircase
 mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/SmallHole
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/SmallHole
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber
 
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/Marketplace
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/Library
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/Library/BackRoom
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/RockyPath
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/RockyPath/Farm
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/ArtisanShop
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/House
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls
-mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DankRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/Slide
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/Marketplace
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/Library
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/Library/BackRoom
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/RockyPath
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/RockyPath/Farm
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/ArtisanShop
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/House
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls
+mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/Slide
 #folder permissions
+chmod 444 Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel
 chmod 444 Game/Home/NorthernMeadow
 
 cp Code/explanations/WelcomeLetter Game/Home
