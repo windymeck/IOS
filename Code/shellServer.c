@@ -38,6 +38,16 @@ int main(int argc, char *argv[]){
 		}else if(strcmp(req.command, "rm") == 0){
 			RequestTrace(&req);
 			UnlockFarm(&req);
+			UnlockSlide(&req);
+			UnlockCaveOfDisgruntedTrolls(&req);
+			Acknowledgement(&req);
+		}else if(strcmp(req.command, "touch") == 0){
+			RequestTrace(&req);
+			UnlockClearing(&req);
+			Acknowledgement(&req);
+		}else if(strcmp(req.command, "sudo") == 0){
+			RequestTrace(&req);
+			ParadiseUnlockAck(&req);
 			Acknowledgement(&req);
 		}else{
 		RequestTrace(&req);
