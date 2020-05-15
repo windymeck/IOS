@@ -123,6 +123,7 @@ gcc Code/touch.c -o Commands/touch -w
 gcc Code/rm.c -o Commands/rm -w
 gcc Code/mv.c -o Commands/mv -w
 gcc Code/ls.c -o Commands/ls -w
+gcc Code/sudo.c -o Commands/sudo -w
 
 echo -ne '#####                     (33%)\r'
 sleep 1
