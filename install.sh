@@ -52,7 +52,7 @@ cp Code/explanations/Professor Game/Home/WesternForest/SpellCastingAcademy/Lesso
 cp Code/explanations/Pony Game/Home/NorthernMeadow/
 cp Code/explanations/OldMan Game/Home/NorthernMeadow/EasternMountains
 cp Code/explanations/OldManuscrips Game/Home/NorthernMeadow/EasternMountains 
-cp Code/explanations/Sing2/ Game/Home/NorthernMeadow/EasternMountains/Cave/Staircase/Sign
+cp Code/explanations/Sing2 Game/Home/NorthernMeadow/EasternMountains/Cave/Staircase/Sign
 cp Code/explanations/Boulder Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom
 cp Code/explanations/Rat Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel
 cp Code/explanations/RandomCitizen1 Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare
@@ -76,17 +76,17 @@ cp Code/explanations/ThornyBrambles Game/Home/NorthernMeadow/EasternMountains/Ca
 cp Code/explanations/UglyTroll Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls
 cp Code/explanations/UglierTroll Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls
 cp Code/explanations/AbsolutelyHideousTroll Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls
-cp Code/explanations/Instructions2 Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/KernelFiles/Instructions
-cp Code/explanations/A_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/KernelFiles/MoreKernelFiles
-cp Code/explanations/B_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/KernelFiles/MoreKernelFiles
-cp Code/explanations/C_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/KernelFiles/MoreKernelFiles
-cp Code/explanations/D_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/KernelFiles/MoreKernelFiles
-cp Code/explanations/F_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/KernelFiles/MoreKernelFiles
-cp Code/explanations/G_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/KernelFiles/MoreKernelFiles
-cp Code/explanations/H_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/KernelFiles/MoreKernelFiles
-cp Code/explanations/I_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/KernelFiles/MoreKernelFiles
-cp Code/explanations/J_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/KernelFiles/MoreKernelFiles
-cp Code/explanations/K_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/KernelFiles/MoreKernelFiles
+cp Code/explanations/Instructions2 Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/KernelFiles
+cp Code/explanations/A_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/Slide/KernelFiles/MoreKernelFiles
+cp Code/explanations/B_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/Slide/KernelFiles/MoreKernelFiles
+cp Code/explanations/C_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/Slide/KernelFiles/MoreKernelFiles
+cp Code/explanations/D_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/Slide/KernelFiles/MoreKernelFiles
+cp Code/explanations/F_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/Slide/KernelFiles/MoreKernelFiles
+cp Code/explanations/G_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/Slide/KernelFiles/MoreKernelFiles
+cp Code/explanations/H_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/Slide/KernelFiles/MoreKernelFiles
+cp Code/explanations/I_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/Slide/KernelFiles/MoreKernelFiles
+cp Code/explanations/J_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/Slide/KernelFiles/MoreKernelFiles
+cp Code/explanations/K_txt Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/Slide/KernelFiles/MoreKernelFiles
 #folder permissions
 chmod 444 Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/Slide/KernelFiles/Paradise
 chmod 444 Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/Slide
