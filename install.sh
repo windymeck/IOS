@@ -34,12 +34,7 @@ mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunne
 mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath
 mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls
 mkdir Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/Slide
-#folder permissions
-chmod 444 Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/RockyPath/Farm
-chmod 444 Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/Library/BackRoom
-chmod 444 Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel
-chmod 444 Game/Home/NorthernMeadow
-
+#copy files to the folders
 cp Code/explanations/WelcomeLetter Game/Home
 cp Code/explanations/BackSign Game/Home/WesternForest
 cp Code/explanations/Sign Game/Home/WesternForest
@@ -51,6 +46,35 @@ cp Code/explanations/PracticeDummy3 Game/Home/WesternForest/SpellCastingAcademy/
 cp Code/explanations/PracticeDummy4 Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
 cp Code/explanations/PracticeDummy5 Game/Home/WesternForest/SpellCastingAcademy/PracticeRoom
 cp Code/explanations/Professor Game/Home/WesternForest/SpellCastingAcademy/Lessons
+cp Code/explanations/Pony Game/Home/NorthernMeadow/
+cp Code/explanations/OldMan Game/Home/NorthernMeadow/EasternMountains
+cp Code/explanations/OldManuscrips Game/Home/NorthernMeadow/EasternMountains 
+cp Code/explanations/Sing2/ Game/Home/NorthernMeadow/EasternMountains/Cave/Staircase/Sign
+cp Code/explanations/Boulder Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom
+cp Code/explanations/Rat Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel
+cp Code/explanations/RandomCitizen1 Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare
+cp Code/explanations/RandomCitizen2 Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare
+cp Code/explanations/DistraughtLady Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare
+cp Code/explanations/Vendor Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/Marketplace
+cp Code/explanations/rmSpell Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/Marketplace 
+cp Code/explanations/HistoryOfTerminus Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/Library 
+cp Code/explanations/TotallyRadSpellbook Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/Library
+cp Code/explanations/PaperbackRomance Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/Library
+cp Code/explanations/InconspicuousLever Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/Library
+cp Code/explanations/Grep Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/Library/BackRoom
+cp Code/explanations/Librarian Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/Library/BackRoom
+cp Code/explanations/PracticeBook Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/Library/BackRoom
+#folder permissions
+#falta lo del paradise
+chmod 444 Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls/Slide
+chmod 444 Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing/OminousLookingPath/CaveOfDisgruntiedTrolls  
+chmod 444 Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/BrokenBridge/Clearing  
+chmod 444 Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/RockyPath/Farm
+chmod 444 Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/Library/BackRoom
+chmod 444 Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel
+chmod 444 Game/Home/NorthernMeadow
+
+
 
 echo -ne '#####                     (33%)\r'
 sleep 1
