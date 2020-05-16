@@ -16,6 +16,10 @@ int main(int argc, char *argv[]){
   strcat(a, argv[1]);
 
   fd = open(a, O_RDONLY);
+  if (fd>0){
   while((n = read(fd, buffer, BUFSIZE))>0)
     printf("%s\n", buffer);
+  }else {
+  printf("El comando introducido no ha sido encontrado\n");
+  }
 }
