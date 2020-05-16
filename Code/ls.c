@@ -9,7 +9,7 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 
-#define path 200
+#define path 500
 
 void red () {
     printf("\033[1;31m");
@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
     dirp = opendir((const char*)pointer);
     loc = pointer;
     //printf("You are located in %s\n", loc);
+    printf("\n");
     while((dp=readdir(dirp))!=NULL){
       if(dp->d_name[0] != '.'){
         stat(dp->d_name, &fstats);
@@ -53,6 +54,7 @@ int main(int argc, char *argv[])
       dirp = opendir((const char*)pointer);
       loc = pointer;
       //printf("You are located in %s\n", loc);
+	  printf("\n");
       while((dp=readdir(dirp))!=NULL){
         if(dp->d_name[0] != '.'){
           chdir(pointer);

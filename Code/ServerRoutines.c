@@ -189,7 +189,7 @@ void UnlockBackRoom(struct t_request *req){
 	char dr[500];
 	strcpy(dr, gamepath);
 	strcat(dr, "/Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/Library");
-	if(strcmp(req->command, "less") == 0 && strcmp(req->location, dr) == 0 && strcmp(req->argument, "InconscpicuousLever") == 0){
+	if(strcmp(req->command, "less") == 0 && strcmp(req->location, dr) == 0 && strcmp(req->argument, "InconspicuousLever") == 0){
 		char lib[500];
 		strcpy(lib, gamepath);
 		strcat(lib, "/Game/Home/NorthernMeadow/EasternMountains/Cave/DarkCorridor/DarkRoom/Tunnel/StoneChamber/Portal/TownSquare/Library/BackRoom");
