@@ -20,6 +20,6 @@ int main(int argc, char *argv[]){
   while((n = read(fd, buffer, BUFSIZE))>0)
     printf("%s\n", buffer);
   }else {
-  	printf("Command not found\n");
+  	printf("Command not found, try again\n");
   }
 }
