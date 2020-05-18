@@ -145,6 +145,8 @@ cp Code/manpages/touch Commands/manfolder/
 cp Code/manpages/grep Commands/manfolder/
 cp Code/manpages/man Commands/manfolder/
 cp Code/manpages/pwd Commands/manfolder/
+cp Code/manpages/mv Commands/manfolder/
+cp Code/manpages/sudo Commands/manfolder/
 
 echo -ne '#####                     (33%)\r'
 sleep 1
