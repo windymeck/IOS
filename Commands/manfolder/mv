@@ -1,0 +1,23 @@
+NAME:
+
+	mv - move (rename) files
+
+SYNOPSIS:
+
+	mv SOURCE... DIRECTORY
+
+DESCRIPTION:
+
+	Rename SOURCE to DEST, or move SOURCE(s) to DIRECTORY.
+
+SEE ALSO:
+
+	rename()
+
+REPORTING BUGS:
+
+	-You have to specify the name of the destination file, otherwise it wouldn’t work
+
+AUTHOR:
+	
+	Haizea Garaño
