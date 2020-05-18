@@ -1,0 +1,19 @@
+NAME:
+	sudo - allows a permitted user to execute a command as another user.
+
+SYNOPSIS:
+	sudo [password]
+
+DESCRIPTION:
+
+	Allows a user to introduce a password. If the password is correct, 
+	the user will beable to change the directory and advance in the game. 
+	If the password is not correct, thegame prevent the user to change the directory.
+
+SEE ALSO:
+
+	strcmp()
+
+REPORTING BUGS:
+
+	-No reporting bugs
